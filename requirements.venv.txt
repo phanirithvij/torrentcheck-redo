@@ -1,4 +1,4 @@
-bencode @ git+https://github.com/phanirithvij/bencode@e327dcad9d243401fee00b2fa924a54e178a3302
+bencode @ git+https://github.com/phanirithvij/bencode
 black==24.3.0
 click==8.1.7
 mypy-extensions==1.0.0
