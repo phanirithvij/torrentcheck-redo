@@ -1,8 +1,1 @@
-bencode @ git+https://github.com/phanirithvij/bencode
-black==24.3.0
-click==8.1.7
-mypy-extensions==1.0.0
-packaging==24.0
-pathspec==0.12.1
-platformdirs==4.2.0
-tqdm==4.66.2
+bencode @ git+https://github.com/phanirithvij/bencode@ada819bb3314096e8b89d1878f88325863257659

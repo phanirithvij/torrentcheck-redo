@@ -1,5 +1,4 @@
 import sys, os, hashlib, io, bencode
-from tqdm import tqdm
 
 
 def pieces_generator(info):
@@ -9,7 +8,7 @@ def pieces_generator(info):
         piece = b""
         for file_info in info["files"]:
             path = os.sep.join([info["name"]] + file_info["path"])
-            print(path)
+            print("-" * 10, path, "-" * 10)
             sfile = open(path, "rb")
             while True:
                 piece += sfile.read(piece_length - len(piece))
@@ -22,7 +21,7 @@ def pieces_generator(info):
             yield piece
     else:  # yield pieces from a single file torrent
         path = info["name"]
-        print(path)
+        print("-" * 10, path, "-" * 10)
         sfile = open(path, "rb")
         while True:
             piece = sfile.read(piece_length)
@@ -44,7 +43,7 @@ def main():
     info = metainfo["info"]
     pieces = io.BytesIO(info["pieces"])
     # Iterate through pieces
-    for piece in tqdm(pieces_generator(info)):
+    for piece in pieces_generator(info):
         # Compare piece hash with expected hash
         piece_hash = hashlib.sha1(piece).digest()
         readd = pieces.read(20)
